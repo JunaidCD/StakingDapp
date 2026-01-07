@@ -13,7 +13,7 @@ const Wallet =({children})=>{
     account:null,
     stakingContract:null,
     stakeTokenContract:null,
-    chianId:null
+    chainId:null
  })
  const [isLoading,setIsLoading]=useState(false);
  
@@ -29,8 +29,8 @@ const Wallet =({children})=>{
  const handleWallet = async()=>{
     try{
         setIsLoading(true);
-        const { provider,selectedAccount,stakingContract,stakeTokenContract,chainId} = await connectWallet();
-        setState({provider,selectedAccount,stakingContract,stakeTokenContract,chainId})
+        const { provider, selectedAccount, stakingContract, stakeTokenContract, chainId } = await connectWallet();
+        setState({provider, account: selectedAccount, stakingContract, stakeTokenContract, chainId})
 
     }catch(error){
        toast.error("Error connecting wallet")
