@@ -15,11 +15,19 @@ function App() {
         <div className="app">
           <Navigation />
           <div className="main-content">
-            <DisplayPanel />
-            <TokenApproval />
-            <StakeAmount />
-            <Withdraw />
-            <ClaimReward />
+            <div className="stats-section">
+              <DisplayPanel />
+            </div>
+            <div className="actions-section">
+              <div className="left-column">
+                <TokenApproval />
+                <StakeAmount />
+              </div>
+              <div className="right-column">
+                <Withdraw />
+                <ClaimReward />
+              </div>
+            </div>
           </div>
         </div>
       </StakingProvider>

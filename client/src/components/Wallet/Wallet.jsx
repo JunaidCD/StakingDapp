@@ -39,12 +39,35 @@ const Wallet =({children})=>{
         setIsLoading(false)
     }
  }
+ // If wallet is connected, show the app with children
+ if (state.account) {
+   return (
+     <Web3Context.Provider value={state}>
+       {children}
+     </Web3Context.Provider>
+   );
+ }
+
+ // If not connected, show the connect wallet screen
  return (
-   <div className="Connect-Wallet">
-     <Web3Context.Provider value={state}>{children}</Web3Context.Provider>
-     {isLoading && <p>Loading...</p>}
-     <Button onClick={handleWallet} type="button" label="Connect Wallet" />
-   </div>
- )
+   <Web3Context.Provider value={state}>
+     <div className="wallet-container">
+       <div className="wallet-card">
+         <h1 className="wallet-title">Connect Your Wallet</h1>
+         <p className="wallet-description">
+           Connect your wallet to start staking and earning rewards
+         </p>
+         {isLoading && <p className="wallet-loading">Connecting...</p>}
+         <button 
+           onClick={handleWallet} 
+           className="wallet-button"
+           disabled={isLoading}
+         >
+           {isLoading ? 'Connecting...' : 'Connect Wallet'}
+         </button>
+       </div>
+     </div>
+   </Web3Context.Provider>
+ );
 }
 export default Wallet;

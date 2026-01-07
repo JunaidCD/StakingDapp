@@ -1,0 +1,122 @@
+.withdraw-container {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  max-width: 100%;
+  width: 100%;
+}
+
+.withdraw-container:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.withdraw-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.withdraw-label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.withdraw-input {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid rgba(79, 172, 254, 0.3);
+  border-radius: 12px;
+  background: rgba(79, 172, 254, 0.08);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.withdraw-input:focus {
+  border-color: #00f2fe;
+  background: rgba(79, 172, 254, 0.15);
+  box-shadow: 0 0 20px rgba(79, 172, 254, 0.4);
+  transform: scale(1.02);
+}
+
+.withdraw-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.withdraw-button {
+  width: 100%;
+  padding: 1.2rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+}
+
+.withdraw-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(79, 172, 254, 0.6);
+}
+
+.withdraw-button:active {
+  transform: translateY(-1px);
+}
+
+.withdraw-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .withdraw-container {
+    padding: 1.5rem;
+  }
+
+  .withdraw-title {
+    font-size: 1rem;
+  }
+
+  .withdraw-label {
+    font-size: 0.85rem;
+  }
+
+  .withdraw-input {
+    padding: 1rem 1.2rem;
+  }
+
+  .withdraw-button {
+    padding: 1rem 1.5rem;
+  }
+}

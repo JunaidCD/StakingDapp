@@ -1,0 +1,99 @@
+.display-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.staked-amount,
+.reward-rate,
+.earned-reward {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.staked-amount::before,
+.reward-rate::before,
+.earned-reward::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+  z-index: 1;
+}
+
+.staked-amount:hover::before,
+.reward-rate:hover::before,
+.earned-reward:hover::before {
+  left: 100%;
+}
+
+.staked-amount:hover,
+.reward-rate:hover,
+.earned-reward:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.staked-amount label,
+.reward-rate label,
+.earned-reward label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  z-index: 2;
+  position: relative;
+}
+
+.staked-amount span,
+.reward-rate span,
+.earned-reward span {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  z-index: 2;
+  position: relative;
+  letter-spacing: -1px;
+}
+
+@media (max-width: 768px) {
+  .display-panel {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .staked-amount,
+  .reward-rate,
+  .earned-reward {
+    padding: 1.5rem;
+  }
+
+  .staked-amount span,
+  .reward-rate span,
+  .earned-reward span {
+    font-size: 1.8rem;
+  }
+}
