@@ -22,14 +22,14 @@ const ConnectedNetwork = () => {
   if (!state?.chainId) {
     return (
       <div className="connected-network">
-        <span>🔴 Network NOT Detected</span>
+        <span>Network NOT Detected</span>
       </div>
     );
   }
 
   return (
     <div className="connected-network">
-      <span>✅ {getNetworkName(state.chainId)}</span>
+      <span>{getNetworkName(state.chainId)}</span>
     </div>
   );
 };

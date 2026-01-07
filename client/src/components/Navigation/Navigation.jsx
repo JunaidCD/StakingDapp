@@ -6,8 +6,14 @@ import './Navigation.css';
 const Navigation = () => {
   return (
     <nav className="navigation">
-      <ConnectedNetwork />
-      <ConnectedAccount />
+      <div className="nav-branding">
+        <h1 className="nav-title">StakeOps</h1>
+        <p className="nav-tagline">Earn rewards by staking your tokens</p>
+      </div>
+      <div className="nav-info">
+        <ConnectedNetwork />
+        <ConnectedAccount />
+      </div>
     </nav>
   );
 };

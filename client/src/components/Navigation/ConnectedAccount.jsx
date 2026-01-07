@@ -12,14 +12,14 @@ const ConnectedAccount = () => {
   if (!state?.account) {
     return (
       <div className="connected-account">
-        <span>👤 Connect Account</span>
+        <span>Connect Account</span>
       </div>
     );
   }
 
   return (
     <div className="connected-account">
-      <span>✅ {formatAddress(state.account)}</span>
+      <span>{formatAddress(state.account)}</span>
     </div>
   );
 };
