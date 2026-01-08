@@ -5,7 +5,8 @@ import { toast } from "react-hot-toast";
 import "./ClaimReward.css"
 
 const ClaimReward = ()=>{
- const {stakingContract}=useContext(Web3Context);
+ const {state}=useContext(Web3Context);
+ const {stakingContract} = state;
  const claimReward = async()=>{
   try{
     const transaction = await stakingContract.getReward();

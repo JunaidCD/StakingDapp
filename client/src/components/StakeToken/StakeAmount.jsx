@@ -6,7 +6,8 @@ import Button from '../Button/Button';
 import { toast } from 'react-hot-toast';
 
 const StakeAmount = () => {
-  const { stakingContract } = useContext(Web3Context);
+  const { state } = useContext(Web3Context);
+  const { stakingContract } = state;
   const { isReload, setIsReload } = useContext(StakingContext);
   const stakeAmountRef = useRef();
 

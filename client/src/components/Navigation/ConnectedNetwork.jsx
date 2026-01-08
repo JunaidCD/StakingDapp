@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import Web3Context from '../../context/Web3Context';
 
 const ConnectedNetwork = () => {
-  const state = useContext(Web3Context);
+  const { state } = useContext(Web3Context);
 
   const getNetworkName = (chainId) => {
     const networks = {
-      '1': 'Ethereum Mainnet',
+      '1': 'Sepolia Testnet',
       '5': 'Goerli Testnet',
       '11155111': 'Sepolia Testnet',
       '137': 'Polygon',

@@ -13,6 +13,34 @@ export const connectWallet = async()=>{
         method:'eth_requestAccounts'
        })
 
+       // Force switch to Sepolia Testnet
+       try {
+        await window.ethereum.request({
+          method: 'wallet_switchEthereumChain',
+          params: [{ chainId: '0xaa36a7' }] // Sepolia chainId in hex
+        });
+       } catch (switchError) {
+        // If Sepolia is not added, add it
+        if (switchError.code === 4902) {
+          await window.ethereum.request({
+            method: 'wallet_addEthereumChain',
+            params: [{
+              chainId: '0xaa36a7',
+              chainName: 'Sepolia Testnet',
+              nativeCurrency: {
+                name: 'ETH',
+                symbol: 'ETH',
+                decimals: 18
+              },
+              rpcUrls: ['https://sepolia.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'],
+              blockExplorerUrls: ['https://sepolia.etherscan.io']
+            }]
+          });
+        } else {
+          throw switchError;
+        }
+       }
+
        let chainIdHex= await window.ethereum.request({
         method:'eth_chainId'
        })

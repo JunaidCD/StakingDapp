@@ -26,6 +26,7 @@ const Wallet =({children})=>{
     window.ethereum.removeListener('chainChanged',()=>handleChainChange(setState)) 
    }
 },[])
+
  const handleWallet = async()=>{
     try{
         setIsLoading(true);
@@ -39,10 +40,22 @@ const Wallet =({children})=>{
         setIsLoading(false)
     }
  }
+
+ const handleDisconnect = () => {
+    setState({
+      provider: null,
+      account: null,
+      stakingContract: null,
+      stakeTokenContract: null,
+      chainId: null
+    });
+    toast.success("Wallet disconnected successfully");
+ }
+
  // If wallet is connected, show the app with children
  if (state.account) {
    return (
-     <Web3Context.Provider value={state}>
+     <Web3Context.Provider value={{state, handleDisconnect}}>
        {children}
      </Web3Context.Provider>
    );
@@ -50,7 +63,7 @@ const Wallet =({children})=>{
 
  // If not connected, show the connect wallet screen
  return (
-   <Web3Context.Provider value={state}>
+   <Web3Context.Provider value={{state, handleDisconnect}}>
      <div className="wallet-container">
        <div className="wallet-card">
          <h1 className="wallet-title">Connect Your Wallet</h1>

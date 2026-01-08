@@ -5,7 +5,8 @@ import Button from '../Button/Button';
 import { toast } from 'react-hot-toast';
 
 const TokenApproval = () => {
-  const { stakeTokenContract } = useContext(Web3Context);
+  const { state } = useContext(Web3Context);
+  const { stakeTokenContract } = state;
   const approvalAmountRef = useRef();
 
   const handleTokenApproval = async (e) => {
